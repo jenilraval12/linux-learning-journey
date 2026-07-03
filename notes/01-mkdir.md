@@ -98,15 +98,56 @@ ls -ld project
 drwxr-xr-x
 ```
 
+### Understanding the Output
+
+```
+drwxr-xr-x
+││ └─┬─┘└─┬─┘└─┬─┘
+││   │     │     └── Others
+││   │     └──────── Group
+││   └────────────── Owner
+│└────────────────── Directory
+└─────────────────── File Type Indicator
+```
+
+- **`d`** → Indicates that it is a **directory**.
+- **First `rwx`** → Permissions for the **Owner (User)**.
+- **Second `r-x`** → Permissions for the **Group**.
+- **Third `r-x`** → Permissions for **Others (Everyone else)**.
+
+### Permission Symbols
+
+| Symbol | Meaning |
+|--------|---------|
+| `r` | Read |
+| `w` | Write |
+| `x` | Execute (or enter a directory) |
+| `-` | Permission not granted |
+
+### Numeric Permission Values
+
+| Number | Binary | Permission |
+|--------|--------|------------|
+| `7` | `111` | `rwx` (Read, Write, Execute) |
+| `6` | `110` | `rw-` (Read, Write) |
+| `5` | `101` | `r-x` (Read, Execute) |
+| `4` | `100` | `r--` (Read only) |
+| `3` | `011` | `-wx` (Write, Execute) |
+| `2` | `010` | `-w-` (Write only) |
+| `1` | `001` | `--x` (Execute only) |
+| `0` | `000` | `---` (No permissions) |
+
 ### Common Permission Values
 
 | Permission | Meaning |
 |------------|---------|
-| 777 | Everyone has full access |
-| 755 | Owner has full access, others can read and execute |
-| 700 | Only the owner has access |
+| `777` | Owner, Group, and Others have full permissions (`rwxrwxrwx`). |
+| `755` | Owner has full permissions (`rwx`), Group and Others have Read and Execute (`r-xr-x`). |
+| `700` | Only the Owner has full permissions (`rwx------`). |
+| `644` | Owner has Read and Write, Group and Others have Read only (`rw-r--r--`). *(Common for files)* |
+| `600` | Only the Owner can Read and Write (`rw-------`). *(Common for sensitive files)* |
 
----
+> **Note:** For directories, the **Execute (`x`) permission** means a user can **enter (cd into)** the directory and access its contents. Without `x`, even if `r` is present, users cannot traverse the directory.
 
 ## 5. Display Created Directories (`-v`)
 
