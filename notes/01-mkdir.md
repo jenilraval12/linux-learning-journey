@@ -102,18 +102,41 @@ drwxr-xr-x
 
 ```
 drwxr-xr-x
-││ └─┬─┘└─┬─┘└─┬─┘
-││   │     │     └── Others
-││   │     └──────── Group
-││   └────────────── Owner
-│└────────────────── Directory
-└─────────────────── File Type Indicator
 ```
 
-- **`d`** → Indicates that it is a **directory**.
-- **First `rwx`** → Permissions for the **Owner (User)**.
-- **Second `r-x`** → Permissions for the **Group**.
-- **Third `r-x`** → Permissions for **Others (Everyone else)**.
+This output can be broken down as follows:
+
+| Part | Meaning |
+|------|---------|
+| `d` | Indicates that it is a **directory**. (`-` would indicate a regular file.) |
+| `rwx` | Permissions for the **Owner (User)** |
+| `r-x` | Permissions for the **Group** |
+| `r-x` | Permissions for **Others (Everyone else)** |
+
+So,
+
+```
+d | rwx | r-x | r-x
+    ↑      ↑      ↑
+ Owner   Group  Others
+```
+
+### Permission Symbols
+
+| Symbol | Meaning |
+|--------|---------|
+| `r` | Read |
+| `w` | Write |
+| `x` | Execute (or enter a directory) |
+| `-` | Permission not granted |
+
+### What Each Permission Means
+
+| User Type | Permissions | Description |
+|-----------|-------------|-------------|
+| **Owner** | `rwx` | Can read, write, and enter the directory. |
+| **Group** | `r-x` | Can read and enter the directory, but cannot modify its contents. |
+| **Others** | `r-x` | Can read and enter the directory, but cannot modify its contents. |
 
 ### Permission Symbols
 
