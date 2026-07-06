@@ -1,4 +1,4 @@
-# Day 04 — `pwd` Command
+# Notes 04 — `pwd` Command
 
 ## 📖 Introduction
 
@@ -448,5 +448,5 @@ pwd
 ---
 
 **Repository:** Linux Learning Journey  
-**Day:** 04  
+**Notes:** 04  
 **Command:** `pwd`
