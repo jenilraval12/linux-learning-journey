@@ -441,7 +441,6 @@ pwd
 
 ## References
 
-- GNU Coreutils Documentation: https://www.gnu.org/software/coreutils/manual/html_node/pwd-invocation.html
 - `man pwd`
 - `pwd --help`
 
